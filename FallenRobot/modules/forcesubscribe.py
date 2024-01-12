@@ -180,12 +180,12 @@ Bot can mute members who are not subscribed to your channel until they subscribe
 
 *Commands:*
 
-/ForceSubscribe - To get the current settings.
-/ForceSubscribe no/off/disable - To turn off Force Subscribe.
-/ForceSubscribe {channel username} - To turn on and set up the channel.
-/ForceSubscribe clear - To unmute all members who are muted by me.
+-/ForceSubscribe - To get the current settings.
+-/ForceSubscribe no/off/disable - To turn off Force Subscribe.
+-/ForceSubscribe {channel username} - To turn on and set up the channel.
+-/ForceSubscribe clear - To unmute all members who are muted by me.
 
-⚠ Note: /FSub is an alias of /ForceSubscribe
+Note: /FSub is an alias of /ForceSubscribe
 """
 
 __mod_name__ = "Forcesub"
