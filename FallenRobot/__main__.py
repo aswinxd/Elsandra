@@ -88,7 +88,7 @@ buttons = [
         InlineKeyboardButton(text="❓How to use? / Commands Help", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="❔X1 News", url=f"https://t.me/Xmusicbots"),
+        InlineKeyboardButton(text="❓ News", url=f"https://t.me/Xmusicbots"),
         InlineKeyboardButton(text="👥 Support", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
 ]
@@ -198,10 +198,9 @@ def start(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
-    else:
-        update.effective_message.reply_photo(
-            START_IMG,
-            caption="Iam online  !\n<b>UPDATE​:</b> <code>{}</code>".format(
+     else:
+        update.effective_message.reply_text(
+            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
