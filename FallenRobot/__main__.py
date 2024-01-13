@@ -344,7 +344,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                 ]
             ),
         )
-       elif query.data == "fallen_back":
+    elif query.data == "fallen_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
@@ -353,6 +353,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
             timeout=60,
             disable_web_page_preview=True,
         )
+
 
 
 def get_help(update: Update, context: CallbackContext):
