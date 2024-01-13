@@ -88,7 +88,7 @@ buttons = [
         InlineKeyboardButton(text="❓How to use? / Commands Help", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="❓ News", url=f"https://t.me/Xmusicbots"),
+        InlineKeyboardButton(text="❓ News", callback_data="fallen_"),
         InlineKeyboardButton(text="👥 Support", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
 ]
@@ -337,6 +337,35 @@ def help_button(update, context):
 
     except BadRequest:
         pass
+        
+def Fallen_about_callback(update: Update, context: CallbackContext):
+    query = update.callback_query
+    if query.data == "fallen_":
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+            text=f"Dear users This bot is a result of open-source contributions from talented developers. I don't own the code, so please give credits to the original creators. I won't be releasing the source code. Enjoy the bot, and thank you to the amazing devs who made it possible!",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="🔙Back", callback_data="fallen_back"
+                        ),
+                    ],
+                ]
+            ),
+        )
+       elif query.data == "fallen_back":
+        first_name = update.effective_user.first_name
+        query.message.edit_text(
+            PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=True,
+        )
+
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
