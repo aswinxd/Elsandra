@@ -278,7 +278,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "*Available Commands For* *{}* :\n".format(
+                "Here is the help for the *{}* module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -288,7 +288,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="🔙Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                 ),
             )
 
@@ -321,10 +321,13 @@ def help_button(update, context):
                 ),
             )
 
+        # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
+        # query.message.delete()
 
     except BadRequest:
         pass
+
         
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
