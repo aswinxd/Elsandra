@@ -270,7 +270,6 @@ def help_button(update, context):
     prev_match = re.match(r"help_prev\((.+?)\)", query.data)
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
-    fallen_back_match = re.match(r"fallen_back", query.data)  # New line added
 
     print(query.message.chat.id)
 
@@ -278,7 +277,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "Here is the help for the *{}* module:\n".format(
+                "*Available Commands For* *{}* :\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -301,7 +300,7 @@ def help_button(update, context):
                     paginate_modules(curr_page - 1, HELPABLE, "help")
                 ),
             )
-            
+
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
@@ -321,22 +320,11 @@ def help_button(update, context):
                 ),
             )
 
-        elif fallen_back_match:  # New block added
-            first_name = update.effective_user.first_name
-            query.message.edit_text(
-                PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=True,
-            )
-
-        # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
-        # query.message.delete()
 
     except BadRequest:
         pass
+
         
 def Fallen_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
