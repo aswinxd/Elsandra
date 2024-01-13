@@ -88,12 +88,12 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
         pairs = pairs[modulo_page * 13 : 13 * (modulo_page + 1)] + [
             (
                 EqInlineKeyboardButton(
-                    "🔙", callback_data="fallen_back"),
+                    "🔙", callback_data="help_back"),
             ),
         ]
 
     else:
-        pairs += [[EqInlineKeyboardButton("🔙", callback_data="fallen_back")]]
+        pairs += [[EqInlineKeyboardButton("🔙", callback_data="help_back")]]
 
     return pairs
 
