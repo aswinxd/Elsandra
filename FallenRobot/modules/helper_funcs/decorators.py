@@ -4,7 +4,7 @@ from telegram import Update
 from FallenRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler, CallbackContext
 from telegram.ext.filters import BaseFilter, Filters
-from FallenRobot import dispatcher as d, log
+from FallenRobot import dispatcher as d, EVENT_LOGS
 from typing import Optional, List
 
 user_history_cache = LRUCache(maxsize=1000)  # Adjust maxsize as needed
