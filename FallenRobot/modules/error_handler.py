@@ -94,8 +94,8 @@ def error_callback(update: Update, context: CallbackContext):
     url = f"https://nekobin.com/{key}.py"
     context.bot.send_message(
         OWNER_ID,
-        text=f"#{context.error.identifier}\n<b>An unknown error occured:</b>\n<code>{e}</code>",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɴᴇᴋᴏʙɪɴ", url=url)]]),
+        text=f"#{context.error.identifier} error found \n<code>{e}</code>",
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("elsandra logs", url=url)]]),
         parse_mode="html",
     )
 
