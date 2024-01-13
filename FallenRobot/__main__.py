@@ -270,6 +270,7 @@ def help_button(update, context):
     prev_match = re.match(r"help_prev\((.+?)\)", query.data)
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
+    fallen_back_match = re.match(r"fallen_back", query.data)  # New line added
 
     print(query.message.chat.id)
 
@@ -287,7 +288,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="🔙", callback_data="help_back")]]
                 ),
             )
 
@@ -300,7 +301,7 @@ def help_button(update, context):
                     paginate_modules(curr_page - 1, HELPABLE, "help")
                 ),
             )
-
+            
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
@@ -320,6 +321,16 @@ def help_button(update, context):
                 ),
             )
 
+        elif fallen_back_match:  # New block added
+            first_name = update.effective_user.first_name
+            query.message.edit_text(
+                PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=True,
+            )
+
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
         # query.message.delete()
@@ -327,7 +338,6 @@ def help_button(update, context):
     except BadRequest:
         pass
 
-        
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -381,7 +391,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back🔙", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="🔙", callback_data="help_back")]]
             ),
         )
 
