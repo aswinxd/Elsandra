@@ -331,7 +331,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
     if query.data == "fallen_":
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-            text=f"Dear users This bot is a result of open-source contributions from talented developers. I don't own the code, so please give credits to the original creators. I won't be releasing the source code. Enjoy the bot, and thank you to the amazing devs who made it possible!",
+            text=f"**NOTE:**This bot is a result of open-source contributions and most of the functions are from some open source bots and iam not the who should take the credits of the bot. And as i said that i took ideas of other devs to build this so iam not going to relese this bot code for public maybe in future with all their permission SO DONT DM ME FOR SOURCE CODE PLEASE! @Xenonbots",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
