@@ -72,9 +72,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hey there! My name is Elsandra - I'm here to help you manage your groups! Hit Help and commands to find out more about how to use me to my full potential.
-
-Join my news channel to get information on all the latest updates.
+Hey there! My name is wayne - I'm here to help you manage your groups! Hit Help and commands to find out more about how to use me to my full potential.
 """
 
 buttons = [
@@ -84,17 +82,11 @@ buttons = [
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
-    [
-        InlineKeyboardButton(text="❓How to use? / Commands Help", callback_data="help_back"),
-    ],
-    [
-        InlineKeyboardButton(text="©️ credits", callback_data="fallen_"),
-        InlineKeyboardButton(text="❕Support", url=f"https://t.me/{SUPPORT_CHAT}"),
-    ],
 ]
 
+
 HELP_STRINGS = f"""
-This is Elsandra help Module click the buttons to see the help
+This is wayne help Module click the buttons to see the help
 If you have any doubts head to support chat"""
 
 IMPORTED = {}
