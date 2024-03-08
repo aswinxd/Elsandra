@@ -7,15 +7,15 @@ class Config(object):
 
     CASH_API_KEY = "NA11YFJ9ED9HBFH9"
 
-    DATABASE_URL = "postgresql://aswinxd:pbCXc87uQWoR@ep-winter-shadow-a5jlgaos-pooler.us-east-2.aws.neon.tech/elsa?sslmode=require"
+    DATABASE_URL = ""
     EVENT_LOGS = "-1001535538162"  # Event logs channel to note down important bot level
-    MONGO_DB_URI = "mongodb+srv://filetolink:DWPEfBYWs4y1ricL@filetolink.xgmsac5.mongodb.net/?retryWrites=true&w=majority"  # Get ths value from cloud.mong
+    MONGO_DB_URI = ""  # Get ths value from cloud.mong
     # Telegraph link of the image which will be shown at start command.
     START_IMG = "https://telegra.ph/file/7298939991d9f7e46c904.jpg"
-    SUPPORT_CHAT = "X1Botchat"
+    SUPPORT_CHAT = ""
     
     # Your Telegram support group chat username where your users will go and bother you
-    TOKEN = "1821123783:AAFJxcZHv-RRsGvhUz5Bi5xN3UljUlARR-8" 
+    TOKEN = "" 
     TIME_API_KEY = "YDNAVZ2G1KUL" # Get bot token from @BotFather on Telegram
     OWNER_ID = "1137799257"  # User id of your telegram account (Must be integer)
 
